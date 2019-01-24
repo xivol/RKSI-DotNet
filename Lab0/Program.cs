@@ -1,6 +1,10 @@
 ﻿/*
- * Lab0.cs
+ * Lab0
  * Ввод-вывод. Передача параметров
+ * 
+ * Часть1. Реализуйте функции поиска корней квадратного уравнения.
+ * 
+ * Часть2. Выведите информацию о полученных корнях используя форматированный вывод.
  */
 
 using System;
@@ -18,7 +22,7 @@ namespace Lab0
         /// <param name="c">Коэффициент c</param>
         /// <param name="x1">Значение первого корня</param>
         /// <param name="x2">Значение второго корня</param>
-        static int Roots(double a, double b, double c, out double x1, out double x2);
+        // TODO: static int Roots(double a, double b, double c, out double x1, out double x2);
 
         /// <summary>
         /// Нахождение комплексных корней уравнения a * x^2 + b * x + c = 0,
@@ -29,7 +33,7 @@ namespace Lab0
         /// <param name="c">Коэффициент c</param>
         /// <param name="re">Вещественная часть корня</param>
         /// <param name="im">Мнимая часть корня</param>
-        static void ComplexRoots(double a, double b, double c, out double re, out double im);
+        // TODO: static void ComplexRoots(double a, double b, double c, out double re, out double im);
 
         /// <summary>
         /// Точка входа в программу
@@ -39,29 +43,30 @@ namespace Lab0
         {
             double a, b, c;
             Console.WriteLine("Введите коэффициенты квадратного уравнения:");
-
+            a = double.Parse(Console.ReadLine());
+            b = double.Parse(Console.ReadLine());
+            c = double.Parse(Console.ReadLine());
 
             double x1, x2;
-            int count = Roots(a, b, c, out x1, out x2);
+            //int count = Roots(a, b, c, out x1, out x2);
 
-            switch (count)
+            switch (0)
             {
                 case 0:
                     Console.WriteLine("Вещественных корней нет!");
                     Console.WriteLine("Комплексные корни:");
-                    ComplexRoots(a, b, c, out x1, out x2);
-                    Console.WriteLine("x1 = {0} + {1}i", x1, Math.Abs(x2));
-                    Console.WriteLine("x2 = {0} - {1}i", x1, Math.Abs(x2));
+                    //ComplexRoots(a, b, c, out x1, out x2);
+                    // TODO: Вывести корни в формате x1 = re + im * i
                     break;
 
                 case 1:
                     Console.WriteLine("Двойной корень:");
-                    Console.WriteLine($"x1,2 = {x1}");
+                    // TODO: Вывести корни в формате x1,2 = ...
                     break;
 
                 default:
                     Console.WriteLine("Два корня:");
-                    Console.WriteLine($"x1 = {x1}\n x2 = {x2}");
+                    // TODO: Вывести корни в формате x1 = ...
                     break;
             }
 
