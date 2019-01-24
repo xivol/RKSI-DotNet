@@ -4,6 +4,10 @@ namespace Lab1
 {
     static class Array
     {
+        /// <summary>
+        /// Print the specified ar.
+        /// </summary>
+        /// <param name="ar">Ar.</param>
         public static void Print(int[] ar)
         {
             Console.Write("[ ");
@@ -12,6 +16,10 @@ namespace Lab1
             Console.WriteLine("]");
         }
 
+        /// <summary>
+        /// Read the specified ar.
+        /// </summary>
+        /// <param name="ar">Ar.</param>
         public static void Read(out int[] ar)
         {
             Console.WriteLine("Введите длину массива:");
@@ -34,6 +42,11 @@ namespace Lab1
             }
         }
 
+        /// <summary>
+        /// Minimums the index.
+        /// </summary>
+        /// <returns>The index.</returns>
+        /// <param name="ar">Ar.</param>
         public static int MinIndex(int[] ar)
         {
             int index = -1;
@@ -45,6 +58,11 @@ namespace Lab1
             return index;
         }
 
+        /// <summary>
+        /// Minimum the specified ar.
+        /// </summary>
+        /// <returns>The minimum.</returns>
+        /// <param name="ar">Ar.</param>
         public static int Min(int[] ar)
         {
             int min = int.MaxValue;
