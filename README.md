@@ -1,6 +1,6 @@
 # RKSI-DotNet
 
-[Актуальное расписание занятий](https://calendar.google.com/calendar?cid=bzBvNm9kbGNmaWx0YW8yZzRtY2RzaHBkZXNAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ)
+[Актуальное расписание занятий](https://calendar.google.com/calendar/embed?src=o0o6odlcfiltao2g4mcdshpdes%40group.calendar.google.com&ctz=Europe%2FMoscow)
 
 [План занятий](https://docs.google.com/spreadsheets/d/e/2PACX-1vSYyvyz_BT3TjF6DYr85vQ97vORGLVoTogFRJqUNDBkH-7HkfcPPypR43Nwb8Cb9C5bkpoaFC2-KwsB/pubhtml)
 
