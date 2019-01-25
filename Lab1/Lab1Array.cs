@@ -3,6 +3,7 @@
  * Отладка. Обработка массивов.
  * 
  * Часть1. Используя методы отладки по шагам найти ошибки в программе.
+ * https://docs.microsoft.com/ru-ru/visualstudio/debugger/debugger-feature-tour?view=vs-2017
  * 
  * Часть2. Реализовать закоментированные методы из класса Lab1Array
  */
@@ -76,7 +77,6 @@ namespace Lab1
         /// Обращение порядка элементов массива между двумя минимальными элементами
         /// </summary>
         /// <param name="ar">Массив данных</param>
-        // TODO: Найдите ошибку в программе:
         public static void ReverseBetweenTwoMins(int[] ar)
         {
             int firstMin = MinIndex(ar);
