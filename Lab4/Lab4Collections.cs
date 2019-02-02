@@ -25,10 +25,10 @@ namespace Lab4
     static class Lab4Collections
     {
         /// <summary>
-        /// Randoms the journal.
+        /// Генерация данных журнала
         /// </summary>
-        /// <param name="students">Students.</param>
-        /// <param name="lessonsCount">Lessons count.</param>
+        /// <param name="students"> Путь к списку студентов</param>
+        /// <param name="lessonsCount"> Количество занятий</param>
         public static void RandomJournal(string students, int lessonsCount)
         {
             StreamReader sr = new StreamReader(students);

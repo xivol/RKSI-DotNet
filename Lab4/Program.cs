@@ -24,8 +24,7 @@ namespace Lab4
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
-            Lab4Collections.RandomJournal("/Users/ilaloskarev/CSharp/RKSI-DotNet/Lab4/43.txt", 10);
-            Lab4Collections.RandomJournal("/Users/ilaloskarev/CSharp/RKSI-DotNet/Lab4/32.txt", 10);
+            Lab4Collections.RandomJournal("/RKSI-DotNet/Lab4/32.txt", 10);
         }
     }
 }
