@@ -40,38 +40,38 @@ namespace Lab2
         ///   4.0 5.0 6.0 7.0
         ///   7.0 8.0 9.0 10.0
         /// </summary>
-        /// <param name="matr">Исходная матрица</param>
-        /// <param name="file">Выходной файл</param>
+        /// <param name="matr"> Исходная матрица</param>
+        /// <param name="file"> Выходной файл</param>
         // TODO: public static void Write(double[,] matr, StreamWriter file);
 
         /// <summary>
-        /// 
+        /// Вычиление индекса строки с минимальной суммой элементов.
         /// </summary>
-        /// <returns>The sum line.</returns>
-        /// <param name="matr">Matr.</param>
+        /// <returns>Индекс строки с минимальной суммой элементов</returns>
+        /// <param name="matr"> Исходная матрица</param>
         // TODO: public static int MinSumRow(double[,] matr);
 
 
         /// <summary>
-        /// Transpose the specified matr.
+        /// Транспонирование матрицы.
         /// </summary>
-        /// <param name="matr">Matr.</param>
+        /// <param name="matr"> Исходная матрица</param>
         // TODO: public static void Transpose(double[,] matr);
 
         /// <summary>
-        /// Сложение матриц
+        /// Сложение матриц.
         /// </summary>
-        /// <returns>Сумма матриц</returns>
-        /// <param name="left">Левая матрица</param>
-        /// <param name="right">Правая матрица</param>
+        /// <returns> Сумма матриц</returns>
+        /// <param name="left"> Левая матрица</param>
+        /// <param name="right"> Правая матрица</param>
         // TODO: public static double[,] Sum(double[,] left, double[,] right);
 
         /// <summary>
-        /// Умножение матриц
+        /// Умножение матриц.
         /// </summary>
-        /// <returns>Произведение матриц</returns>
-        /// <param name="left">Левая матрица</param>
-        /// <param name="right">Правая матрица</param>
+        /// <returns> Произведение матриц</returns>
+        /// <param name="left"> Левая матрица</param>
+        /// <param name="right"> Правая матрица</param>
         // TODO: public static double[,] Multiply(double[,] left, double[,] right);
 
     }

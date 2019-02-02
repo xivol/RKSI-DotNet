@@ -14,7 +14,7 @@ namespace Lab2
     {
         static void Main(string[] args)
         {
-            double[,] matr = new double[,] { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+            double[,] matr = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
             Matrix.Print(matr);
             Console.ReadKey();
         }
