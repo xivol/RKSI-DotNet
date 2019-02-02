@@ -3,7 +3,7 @@ using System.IO;
 
 namespace Lab2
 {
-    public class Matrix
+    static class Matrix
     {
         /// <summary>
         /// Вывод марицы на консоль
