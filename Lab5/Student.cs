@@ -1,22 +1,12 @@
-﻿/*
- * Lab5 
- * Классы. Наследование
- * 
- * Часть 1. Реализовать в классе Student метод считывания данных из потока ввода.
- *          Считать данные группы студентов из файла.
- *          Вычислить число лиц мужского, женского и других полов.
- * 
- * Часть 2. Реализовать
- */
-
+﻿
 using System;
 using System.IO;
 using System.Text;
 
-namespace Lab5
+namespace Lab55
 {
     /// <summary>
-    /// Класс студент
+    /// Класс студент.
     /// </summary>
     public class Student : Person
     {
@@ -24,12 +14,17 @@ namespace Lab5
         protected uint group;
         protected string track;
 
+        protected uint accessCardNum;
+
         public Student(string firstname, string lastname, string patronim, Gender gender,
                        string track, uint course, uint group) : base(gender, firstname, lastname, patronim)
         {
             this.track = track;
             this.course = course;
             this.group = group;
+
+            // IAccessCardHolder
+            this.accessCardNum = (uint) new Random().Next();
         }
 
         public Student(Person p, string track, uint course, uint group) : 
@@ -39,32 +34,35 @@ namespace Lab5
         /// <summary>
         /// Read the specified input.
         /// </summary>
-        /// <returns>The read.</returns>
-        /// <param name="input">Input.</param>
         // TODO: public static new Student Read(TextReader input);
 
         /// <summary>
-        /// Курс
+        /// Номер курса.
         /// </summary>
-        /// <value> Номер курса</value>
         public uint Course
         {
             get { return this.course; }
         }
 
-        // Номер группы
+        /// <summary>
+        /// Номер группы.
+        /// </summary>
         public uint Group
         {
             get { return this.group; }
         }
 
-        // Учебная программа
+        /// <summary>
+        /// Учебная программа.
+        /// </summary>
         public string Track
         {
             get { return this.track; }
         }
 
-        // Название группы
+        /// <summary>
+        /// Название группы.
+        /// </summary>
         public string GetGroupName()
         {
             // Пример работы со StringBuilder
@@ -75,7 +73,9 @@ namespace Lab5
             return result.ToString();
         }
 
-
+        /// <summary>
+        /// Полное имя студента.
+        /// </summary>
         public new string FullName // закрывает метод базового класса Person
         {
             get
@@ -84,9 +84,13 @@ namespace Lab5
             }
         }
 
+        /// <summary>
+        /// Returns a <see cref="T:System.String"/> that represents the current <see cref="T:Lab5.Student"/>.
+        /// </summary>
         public override string ToString()
         {
             return $"{base.ToString()}; {GetGroupName()}";
         }
+
     }
 }

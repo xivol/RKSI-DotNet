@@ -1,0 +1,46 @@
+﻿using System;
+
+using System.Text;
+namespace Lab6
+{
+    public enum CalculatorOperation { Add = '+', Sub = '-', Mul = '*', Div = '/' };
+
+    public interface ICalculator
+    {
+        double? LeftValue { get; }
+
+        double? RightValue { get; }
+
+        CalculatorOperation? Operation { get; }
+
+        double? Result { get; }
+
+        /// <summary>
+        /// Adds the digit.
+        /// </summary>
+        /// <param name="digit">Digit.</param>
+        void AddDigit(int digit);
+
+        /// <summary>
+        /// Adds the operation.
+        /// </summary>
+        /// <param name="op">Op.</param>
+        void AddOperation(CalculatorOperation op);
+
+        event CalculatorEvent OnDidChangeLeft;
+        event CalculatorEvent OnDidChangeRight;
+
+        /// <summary>
+        /// Compute this instance.
+        /// </summary>
+        void Compute();
+
+        event CalculatorEvent OnDidCompute;
+        event CalculatorEvent OnUnableToCompute;
+
+        /// <summary>
+        /// Clear this instance.
+        /// </summary>
+        void Clear();
+    }
+}
