@@ -9,6 +9,7 @@ namespace Lab6
         public readonly double? LeftValue;
         public readonly double? RightValue;
         public readonly CalculatorOperation? Operation;
+
         public readonly string Message;
 
         public CalculatorEventArgs(string message, double? leftVal, double? rightVal, CalculatorOperation? op)
