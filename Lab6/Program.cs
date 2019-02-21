@@ -2,7 +2,11 @@
  * Lab6
  * Интерфейсы. События. Представители(делегаты).
  * 
+ * Часть 1. Реализовать класс с интерфейсом ICalculator. Использовать инкапсуляцию.
+ *   Продемонстрировать работу класса на разборе заданной строки.
  * 
+ * Часть 2. Реализовать метод, последовательно считывающий числа из файла, 
+ *  и выводящий накопленную сумму на консоль.
  */
 using System;
 
@@ -21,15 +25,14 @@ namespace Lab6
                 }
                 else if (c == '=')
                 {
-                    calc?.Compute();
                     Console.WriteLine(c);
                 }
                 else
                 {
                     object op = Enum.ToObject(typeof(CalculatorOperation), c);
+
                     if (Enum.IsDefined(typeof(CalculatorOperation), op))
                     {
-                        calc?.AddOperation((CalculatorOperation) op);
                         Console.WriteLine((char)(CalculatorOperation)op);
                     }
                     else
@@ -48,9 +51,9 @@ namespace Lab6
             {
                 Parse(calc, "12+34=");
             }
-            catch (ArgumentException)
+            catch (ArgumentException e)
             {
-                Console.WriteLine("error");
+                Console.WriteLine($"Error: \"{e.Message}\"");
             }
         }
     }

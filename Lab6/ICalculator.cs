@@ -1,6 +1,5 @@
 ﻿using System;
 
-using System.Text;
 namespace Lab6
 {
     public enum CalculatorOperation { Add = '+', Sub = '-', Mul = '*', Div = '/' };
@@ -21,14 +20,16 @@ namespace Lab6
         /// <param name="digit">Digit.</param>
         void AddDigit(int digit);
 
+        event CalculatorEvent OnDidChangeLeft;
+        event CalculatorEvent OnDidChangeRight;
+
         /// <summary>
         /// Adds the operation.
         /// </summary>
         /// <param name="op">Op.</param>
         void AddOperation(CalculatorOperation op);
 
-        event CalculatorEvent OnDidChangeLeft;
-        event CalculatorEvent OnDidChangeRight;
+        event CalculatorEvent OnDidChangeOperation;
 
         /// <summary>
         /// Compute this instance.
