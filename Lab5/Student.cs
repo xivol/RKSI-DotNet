@@ -3,7 +3,7 @@ using System;
 using System.IO;
 using System.Text;
 
-namespace Lab55
+namespace Lab5
 {
     /// <summary>
     /// Класс студент.
