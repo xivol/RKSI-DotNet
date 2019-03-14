@@ -3,11 +3,6 @@ using System.Text;
 
 namespace Lab6
 {
-    /// <summary>
-    /// Событие калькулятора
-    /// </summary>
-    /// <param name="sender">Калькулятор, вызвавший событие</param>
-    /// <param name="eventArgs">Параметры события</param>
     public delegate void CalculatorEvent(ICalculator sender, CalculatorEventArgs eventArgs);
 
     public class CalculatorEventArgs
