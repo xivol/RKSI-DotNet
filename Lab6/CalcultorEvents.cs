@@ -42,7 +42,7 @@ namespace Lab6
     {
         public readonly double Result;
 
-        ComputeEventArgs(double leftVal, double rightVal, CalculatorOperation op, double result) :
+        public ComputeEventArgs(double leftVal, double rightVal, CalculatorOperation op, double result) :
             base(null, leftVal, rightVal, op)
         {
             Result = result;
