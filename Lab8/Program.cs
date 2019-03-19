@@ -24,13 +24,5 @@ namespace Lab8
             Application.Run(context);
         }
 
-        static Random rnd = new Random();
-
-        public static Color RandomColor()
-        {
-            
-            Array colors = Enum.GetValues(typeof(KnownColor));
-            return Color.FromKnownColor((KnownColor)colors.GetValue(rnd.Next(colors.Length)));
-        }
     }
 }

@@ -19,11 +19,12 @@ namespace Lab8
                 this.forms.AddLast(form);
 
                 form.FormClosed += OnFormClosed;
-                if (form is OneOfManyForm oomf)
-                    {
-                        oomf.ShowNext += OnShowNext;
-                        oomf.ShowPrev += OnShowPrev;
-                    }
+                if (form is IOneOfMany<Form>)
+                {
+                    IOneOfMany<Form>  oomf = form as IOneOfMany<Form>;
+                    oomf.ShowNext += OnShowNext;
+                    oomf.ShowPrev += OnShowPrev;
+                }
 
                 form.Show();
             }
@@ -43,8 +44,11 @@ namespace Lab8
             var node = forms.Find(form);
             var next = node == forms.Last ? forms.First : node.Next;
 
-            form.WindowState = FormWindowState.Minimized;
-            next.Value.WindowState = FormWindowState.Normal;
+            //form.WindowState = FormWindowState.Minimized;
+            form.Hide();
+            //next.Value.WindowState = FormWindowState.Normal;
+            next.Value.Show();
+
             next.Value.Focus();
         }
 
@@ -53,8 +57,11 @@ namespace Lab8
             var node = forms.Find(form);
             var prev = node == forms.First ? forms.Last : node.Previous;
 
-            form.WindowState = FormWindowState.Minimized;
-            prev.Value.WindowState = FormWindowState.Normal;
+            //form.WindowState = FormWindowState.Minimized;
+            form.Hide();
+            //prev.Value.WindowState = FormWindowState.Normal;
+            prev.Value.Show();
+
             prev.Value.Focus();
         }
     }

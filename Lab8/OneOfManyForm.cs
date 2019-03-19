@@ -11,18 +11,25 @@ using System.Windows.Forms;
 namespace Lab8
 {
     
-    public partial class OneOfManyForm : Form
+    public partial class OneOfManyForm : Form, IOneOfMany<Form>
     {
-        public delegate void FormDelegate(Form sender);
+        public event OneOfManyDelegate<Form> ShowNext;
+        public event OneOfManyDelegate<Form> ShowPrev;
 
-        public event FormDelegate ShowNext;
-        public event FormDelegate ShowPrev;
-       
+
+        static Random rnd = new Random();
+        public static Color RandomColor()
+        {
+
+            Array colors = Enum.GetValues(typeof(KnownColor));
+            return Color.FromKnownColor((KnownColor)colors.GetValue(rnd.Next(colors.Length)));
+        }
+
         public OneOfManyForm()
         {
             InitializeComponent();
 
-            //labelID.BackColor = Program.RandomColor();
+            labelID.BackColor = RandomColor();
         }
 
         private void buttonNextClick(object sender, EventArgs e)
@@ -37,7 +44,8 @@ namespace Lab8
 
         private void OneOfManyFormOnDeactivate(object sender, EventArgs e)
         {
-            WindowState = FormWindowState.Minimized;
+            //WindowState = FormWindowState.Minimized;
+            Hide();
         }
 
         private void OneOfManyFormOnClosed(object sender, FormClosedEventArgs e)
