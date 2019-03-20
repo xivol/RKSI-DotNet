@@ -93,7 +93,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(12, 34);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(306, 20);
+            this.textBox1.Size = new System.Drawing.Size(292, 20);
             this.textBox1.TabIndex = 3;
             this.textBox1.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_Validating);
             // 
@@ -102,7 +102,7 @@
             this.maskedTextBox1.Location = new System.Drawing.Point(13, 88);
             this.maskedTextBox1.Mask = "+7 (999) 000-00-00";
             this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(305, 20);
+            this.maskedTextBox1.Size = new System.Drawing.Size(291, 20);
             this.maskedTextBox1.TabIndex = 4;
             this.maskedTextBox1.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_Validating);
             // 
@@ -128,6 +128,7 @@
             // 
             // errorProvider1
             // 
+            this.errorProvider1.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
             this.errorProvider1.ContainerControl = this;
             // 
             // OneOfManyForm
@@ -142,9 +143,8 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "OneOfManyForm";
             this.Text = "OneOfManyForm";
-            this.Deactivate += new System.EventHandler(this.OneOfManyFormOnDeactivate);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OneOfManyForm_FormClosing);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OneOfManyFormOnClosed);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OneOfManyForm_FormClosed);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();

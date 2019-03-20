@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Lab8
@@ -16,11 +14,12 @@ namespace Lab8
         public event OneOfManyDelegate<Form> ShowNext;
         public event OneOfManyDelegate<Form> ShowPrev;
 
+        public Dictionary<Control, Func<bool>> validator;
+        public Dictionary<Control, string> error;
 
         static Random rnd = new Random();
         public static Color RandomColor()
         {
-
             Array colors = Enum.GetValues(typeof(KnownColor));
             return Color.FromKnownColor((KnownColor)colors.GetValue(rnd.Next(colors.Length)));
         }
@@ -29,61 +28,72 @@ namespace Lab8
         {
             InitializeComponent();
 
+            // Назначим разные цвета для разных окон
             labelID.BackColor = RandomColor();
+
+            SetupValidators();
         }
 
         private void buttonNextClick(object sender, EventArgs e)
         {
-            ShowNext(this);            
+            if (ValidateChildren(ValidationConstraints.Enabled))
+            {
+                ShowNext(this);
+            }      
         }
 
         private void buttonPrevClick(object sender, EventArgs e)
         {
-            ShowPrev(this);            
+            if (ValidateChildren(ValidationConstraints.Enabled))
+            {
+                ShowPrev(this);
+            }          
         }
 
-        private void OneOfManyFormOnDeactivate(object sender, EventArgs e)
+        private void OneOfManyForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //WindowState = FormWindowState.Minimized;
-            Hide();
+            e.Cancel = !ValidateChildren(ValidationConstraints.Enabled);
         }
 
-        private void OneOfManyFormOnClosed(object sender, FormClosedEventArgs e)
+        private void OneOfManyForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             ShowNext(this);
         }
 
         private void textBox_Validating(object sender, CancelEventArgs e)
         {
-            
-            if (sender == textBox1)
+            Control ctrl = sender as Control;
+            if (validator.ContainsKey(ctrl))
             {
-                TextBox box = sender as TextBox;
-                if (String.IsNullOrEmpty(box.Text))
+                if (!validator[ctrl]())
                 {
-                    errorProvider1.SetError(box, "Имя не может быть пустым");
+                    ctrl.BackColor = Color.LightPink;
+                    errorProvider1.SetError(ctrl, error[ctrl]);
                     e.Cancel = true;
                 }
-            }
-            else if (sender == maskedTextBox1)
-            {
-                MaskedTextBox box = sender as MaskedTextBox;
-                errorProvider1.SetError(box, "Телефон заполнен не верно");
-                e.Cancel = true;
-            }
-            else
-            {
-                errorProvider1.Clear();
-                e.Cancel = false;
-            }
+                else
+                {
+                    ctrl.BackColor = Color.White;
+                    errorProvider1.SetError(ctrl, "");
+                }
+            }            
         }
 
-        private void OneOfManyForm_FormClosing(object sender, FormClosingEventArgs e)
+        void SetupValidators()
         {
-            if (!ValidateChildren(ValidationConstraints.Enabled))
-            {
-                e.Cancel = true;
-            }
+            validator = new Dictionary<Control, Func<bool>>();
+            error = new Dictionary<Control, string>();
+
+            validator[textBox1] = () => !String.IsNullOrEmpty(textBox1.Text);
+            error[textBox1] = "Имя не может быть пустым";
+
+            validator[maskedTextBox1] = () =>
+                {
+                    Regex phone = new Regex(@"\+7\s\(\d\d\d\)\s\d\d\d-\d\d-\d\d");
+                    return phone.IsMatch(maskedTextBox1.Text);
+                };
+            error[maskedTextBox1] = "Телефон должен быть заполнен";
         }
+
     }
 }

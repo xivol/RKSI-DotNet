@@ -19,7 +19,6 @@ namespace Lab8
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            DataModel model = new DataModel();
             var context = new MultiFormContext(new OneOfManyForm(), new OneOfManyForm(), new OneOfManyForm());
             Application.Run(context);
         }

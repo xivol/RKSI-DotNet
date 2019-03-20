@@ -9,7 +9,7 @@ namespace Lab9
     static class Program
     {
         /// <summary>
-        /// Главная точка входа для приложения.
+        /// https://docs.microsoft.com/ru-ru/visualstudio/data-tools/read-xml-data-into-a-dataset?view=vs-2017
         /// </summary>
         [STAThread]
         static void Main()

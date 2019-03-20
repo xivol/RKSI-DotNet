@@ -25,10 +25,9 @@ namespace Lab8
                     oomf.ShowNext += OnShowNext;
                     oomf.ShowPrev += OnShowPrev;
                 }
-
-                form.Show();
             }
 
+            this.forms.First.Value.Show();
         }
 
         private void OnFormClosed(object sender, EventArgs args)
@@ -44,11 +43,8 @@ namespace Lab8
             var node = forms.Find(form);
             var next = node == forms.Last ? forms.First : node.Next;
 
-            //form.WindowState = FormWindowState.Minimized;
             form.Hide();
-            //next.Value.WindowState = FormWindowState.Normal;
             next.Value.Show();
-
             next.Value.Focus();
         }
 
@@ -57,11 +53,8 @@ namespace Lab8
             var node = forms.Find(form);
             var prev = node == forms.First ? forms.Last : node.Previous;
 
-            //form.WindowState = FormWindowState.Minimized;
             form.Hide();
-            //prev.Value.WindowState = FormWindowState.Normal;
             prev.Value.Show();
-
             prev.Value.Focus();
         }
     }
