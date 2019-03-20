@@ -52,5 +52,38 @@ namespace Lab8
         {
             ShowNext(this);
         }
+
+        private void textBox_Validating(object sender, CancelEventArgs e)
+        {
+            
+            if (sender == textBox1)
+            {
+                TextBox box = sender as TextBox;
+                if (String.IsNullOrEmpty(box.Text))
+                {
+                    errorProvider1.SetError(box, "Имя не может быть пустым");
+                    e.Cancel = true;
+                }
+            }
+            else if (sender == maskedTextBox1)
+            {
+                MaskedTextBox box = sender as MaskedTextBox;
+                errorProvider1.SetError(box, "Телефон заполнен не верно");
+                e.Cancel = true;
+            }
+            else
+            {
+                errorProvider1.Clear();
+                e.Cancel = false;
+            }
+        }
+
+        private void OneOfManyForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!ValidateChildren(ValidationConstraints.Enabled))
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }

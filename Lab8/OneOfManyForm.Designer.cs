@@ -70,7 +70,7 @@
             this.tableLayoutPanel1.Controls.Add(this.buttonNext, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.labelID, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 296);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 182);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -95,6 +95,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(306, 20);
             this.textBox1.TabIndex = 3;
+            this.textBox1.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_Validating);
             // 
             // maskedTextBox1
             // 
@@ -103,15 +104,16 @@
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(305, 20);
             this.maskedTextBox1.TabIndex = 4;
+            this.maskedTextBox1.Validating += new System.ComponentModel.CancelEventHandler(this.textBox_Validating);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 5;
-            this.label1.Text = "label1";
+            this.label1.Text = "Имя";
             // 
             // label2
             // 
@@ -120,9 +122,9 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(12, 72);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(52, 13);
             this.label2.TabIndex = 6;
-            this.label2.Text = "label2";
+            this.label2.Text = "Телефон";
             // 
             // errorProvider1
             // 
@@ -132,7 +134,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(330, 331);
+            this.ClientSize = new System.Drawing.Size(330, 217);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.maskedTextBox1);
@@ -141,6 +143,7 @@
             this.Name = "OneOfManyForm";
             this.Text = "OneOfManyForm";
             this.Deactivate += new System.EventHandler(this.OneOfManyFormOnDeactivate);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OneOfManyForm_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.OneOfManyFormOnClosed);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
