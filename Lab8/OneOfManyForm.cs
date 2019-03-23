@@ -11,26 +11,21 @@ namespace Lab8
     
     public partial class OneOfManyForm : Form, IOneOfMany<Form>
     {
-        public event OneOfManyDelegate<Form> ShowNext;
-        public event OneOfManyDelegate<Form> ShowPrev;
+        public event Action<Form> ShowNext;
+        public event Action<Form> ShowPrevious;
 
-        public Dictionary<Control, Func<bool>> validator;
-        public Dictionary<Control, string> error;
-
-        static Random rnd = new Random();
-        public static Color RandomColor()
+        public void SetUID(uint uid)
         {
-            Array colors = Enum.GetValues(typeof(KnownColor));
-            return Color.FromKnownColor((KnownColor)colors.GetValue(rnd.Next(colors.Length)));
+            labelID.Text = uid.ToString();
         }
 
-        public OneOfManyForm()
+        private StudentData student;
+
+        public OneOfManyForm(StudentData student)
         {
-            InitializeComponent();
+            this.student = student;
 
-            // Назначим разные цвета для разных окон
-            labelID.BackColor = RandomColor();
-
+            InitializeComponent();            
             SetupValidators();
         }
 
@@ -39,14 +34,14 @@ namespace Lab8
             if (ValidateChildren(ValidationConstraints.Enabled))
             {
                 ShowNext(this);
-            }      
+            }    
         }
 
         private void buttonPrevClick(object sender, EventArgs e)
         {
             if (ValidateChildren(ValidationConstraints.Enabled))
             {
-                ShowPrev(this);
+                ShowPrevious(this);
             }          
         }
 
@@ -58,6 +53,28 @@ namespace Lab8
         private void OneOfManyForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             ShowNext(this);
+        }
+
+
+
+
+        public Dictionary<Control, Func<bool>> validator;
+        public Dictionary<Control, Action<StudentData>> dataSet;
+        public Dictionary<Control, string> error;
+
+        void SetupValidators()
+        {
+            validator = new Dictionary<Control, Func<bool>>();
+            dataSet = new Dictionary<Control, Action<StudentData>>();
+            error = new Dictionary<Control, string>();
+
+            validator[textBox1] = () => !String.IsNullOrEmpty(textBox1.Text);
+            dataSet[textBox1] = (StudentData s) => s.Name = textBox1.Text;
+            error[textBox1] = "Имя не может быть пустым";
+
+            validator[maskedTextBox1] = () => Regex.IsMatch(maskedTextBox1.Text, StudentData.PhoneFormat);
+            dataSet[maskedTextBox1] = (StudentData s) => s.Phone = maskedTextBox1.Text;
+            error[maskedTextBox1] = "Телефон должен быть заполнен";
         }
 
         private void textBox_Validating(object sender, CancelEventArgs e)
@@ -75,25 +92,9 @@ namespace Lab8
                 {
                     ctrl.BackColor = Color.White;
                     errorProvider1.SetError(ctrl, "");
+                    dataSet[ctrl](student);
                 }
             }            
         }
-
-        void SetupValidators()
-        {
-            validator = new Dictionary<Control, Func<bool>>();
-            error = new Dictionary<Control, string>();
-
-            validator[textBox1] = () => !String.IsNullOrEmpty(textBox1.Text);
-            error[textBox1] = "Имя не может быть пустым";
-
-            validator[maskedTextBox1] = () =>
-                {
-                    Regex phone = new Regex(@"\+7\s\(\d\d\d\)\s\d\d\d-\d\d-\d\d");
-                    return phone.IsMatch(maskedTextBox1.Text);
-                };
-            error[maskedTextBox1] = "Телефон должен быть заполнен";
-        }
-
     }
 }

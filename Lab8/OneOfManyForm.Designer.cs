@@ -47,7 +47,7 @@
             this.buttonPrev.TabIndex = 0;
             this.buttonPrev.Text = "<";
             this.buttonPrev.UseVisualStyleBackColor = true;
-            this.buttonPrev.Click += new System.EventHandler(this.buttonNextClick);
+            this.buttonPrev.Click += new System.EventHandler(this.buttonPrevClick);
             // 
             // buttonNext
             // 
@@ -58,7 +58,7 @@
             this.buttonNext.TabIndex = 1;
             this.buttonNext.Text = ">";
             this.buttonNext.UseVisualStyleBackColor = true;
-            this.buttonNext.Click += new System.EventHandler(this.buttonPrevClick);
+            this.buttonNext.Click += new System.EventHandler(this.buttonNextClick);
             // 
             // tableLayoutPanel1
             // 
@@ -81,13 +81,15 @@
             // labelID
             // 
             this.labelID.AutoSize = true;
-            this.labelID.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.labelID.BackColor = System.Drawing.SystemColors.Control;
             this.labelID.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelID.Location = new System.Drawing.Point(152, 3);
             this.labelID.Margin = new System.Windows.Forms.Padding(3);
             this.labelID.Name = "labelID";
             this.labelID.Size = new System.Drawing.Size(25, 29);
             this.labelID.TabIndex = 2;
+            this.labelID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // textBox1
             // 

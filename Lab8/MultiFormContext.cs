@@ -13,6 +13,7 @@ namespace Lab8
         public MultiFormContext(params Form[] forms)
         {
             this.forms = new LinkedList<Form>();
+            uint uid = 0;
 
             foreach (var form in forms)
             {
@@ -23,7 +24,9 @@ namespace Lab8
                 {
                     IOneOfMany<Form>  oomf = form as IOneOfMany<Form>;
                     oomf.ShowNext += OnShowNext;
-                    oomf.ShowPrev += OnShowPrev;
+                    oomf.ShowPrevious += OnShowPrevious;
+
+                    oomf.SetUID(uid++);
                 }
             }
 
@@ -34,7 +37,7 @@ namespace Lab8
         {
             forms.Remove(sender as Form);
 
-            if(forms.Count == 0)
+            if (forms.Count == 0)
                 ExitThread();
         }
 
@@ -48,7 +51,7 @@ namespace Lab8
             next.Value.Focus();
         }
 
-        private void OnShowPrev(Form form)
+        private void OnShowPrevious(Form form)
         {
             var node = forms.Find(form);
             var prev = node == forms.First ? forms.Last : node.Previous;
