@@ -1,6 +1,8 @@
 ﻿using System.Reflection;
+using System.Resources;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Windows;
 
 // Общие сведения об этой сборке предоставляются следующим набором
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
@@ -19,8 +21,25 @@ using System.Runtime.InteropServices;
 // COM, задайте атрибуту ComVisible значение TRUE для этого типа.
 [assembly: ComVisible(false)]
 
-// Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
-[assembly: Guid("0ee489ea-a8ed-4ff4-82de-620777512fb8")]
+//Чтобы начать создание локализуемых приложений, задайте
+//<UICulture>CultureYouAreCodingWith</UICulture> в файле .csproj
+//внутри <PropertyGroup>.  Например, если используется английский США
+//в своих исходных файлах установите <UICulture> в en-US.  Затем отмените преобразование в комментарий
+//атрибута NeutralResourceLanguage ниже.  Обновите "en-US" в
+//строка внизу для обеспечения соответствия настройки UICulture в файле проекта.
+
+//[assembly: NeutralResourcesLanguage("en-US", UltimateResourceFallbackLocation.Satellite)]
+
+
+[assembly: ThemeInfo(
+    ResourceDictionaryLocation.None, //где расположены словари ресурсов по конкретным тематикам
+                                     //(используется, если ресурс не найден на странице,
+                                     // или в словарях ресурсов приложения)
+    ResourceDictionaryLocation.SourceAssembly //где расположен словарь универсальных ресурсов
+                                              //(используется, если ресурс не найден на странице,
+                                              // в приложении или в каких-либо словарях ресурсов для конкретной темы)
+)]
+
 
 // Сведения о версии сборки состоят из следующих четырех значений:
 //

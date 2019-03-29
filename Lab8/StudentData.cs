@@ -42,7 +42,6 @@ namespace Lab8
         public string Passport { get; set; }
         #endregion
 
-
         #region Контактные данные
 
         /// <summary>
