@@ -6,4 +6,6 @@
 
 [Список литературы](https://docs.google.com/document/d/e/2PACX-1vSwGallxhK5B1EGgJrpUs28UIyRB3MryVNr3RYv65MObP7WhUMMee_YWAO7nYrTmZ3WXyxZZlZ5Biat/pub)
 
+[Вопросы к экзамену](https://docs.google.com/document/d/1UiXIfFCc48tftI9zYQ-3OQmMcYrW1b0cpiuyAehVqQ0)
+
 [Материалы по лекциям](https://drive.google.com/drive/folders/1IpxtMYIP7j1Rb3OhM7ESj94xu7emyGNY?usp=sharing)
