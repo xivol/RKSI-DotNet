@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Menu" targetNamespace="http://tempuri.org/Menu.xsd" xmlns:mstns="http://tempuri.org/Menu.xsd" xmlns="http://tempuri.org/Menu.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Menu" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Menu" msprop:Generator_UserDSName="Menu">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Menu" msprop:Generator_TableClassName="MenuDataTable" msprop:Generator_TableVarName="tableMenu" msprop:Generator_TablePropName="_Menu" msprop:Generator_RowDeletingName="MenuRowDeleting" msprop:Generator_RowChangingName="MenuRowChanging" msprop:Generator_RowEvHandlerName="MenuRowChangeEventHandler" msprop:Generator_RowDeletedName="MenuRowDeleted" msprop:Generator_UserTableName="Menu" msprop:Generator_RowChangedName="MenuRowChanged" msprop:Generator_RowEvArgName="MenuRowChangeEvent" msprop:Generator_RowClassName="MenuRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
+              <xs:element name="Food" msprop:Generator_ColumnVarNameInTable="columnFood" msprop:Generator_ColumnPropNameInRow="Food" msprop:Generator_ColumnPropNameInTable="FoodColumn" msprop:Generator_UserColumnName="Food" type="xs:string" minOccurs="0" />
+              <xs:element name="Price" msprop:Generator_ColumnVarNameInTable="columnPrice" msprop:Generator_ColumnPropNameInRow="Price" msprop:Generator_ColumnPropNameInTable="PriceColumn" msprop:Generator_UserColumnName="Price" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Food" msprop:Generator_TableClassName="FoodDataTable" msprop:Generator_TableVarName="tableFood" msprop:Generator_TablePropName="Food" msprop:Generator_RowDeletingName="FoodRowDeleting" msprop:Generator_RowChangingName="FoodRowChanging" msprop:Generator_RowEvHandlerName="FoodRowChangeEventHandler" msprop:Generator_RowDeletedName="FoodRowDeleted" msprop:Generator_UserTableName="Food" msprop:Generator_RowChangedName="FoodRowChanged" msprop:Generator_RowEvArgName="FoodRowChangeEvent" msprop:Generator_RowClassName="FoodRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Description" msprop:Generator_ColumnVarNameInTable="columnDescription" msprop:Generator_ColumnPropNameInRow="Description" msprop:Generator_ColumnPropNameInTable="DescriptionColumn" msprop:Generator_UserColumnName="Description" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1">
+      <xs:selector xpath=".//mstns:Menu" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="Food_Constraint1" msdata:ConstraintName="Constraint1">
+      <xs:selector xpath=".//mstns:Food" />
+      <xs:field xpath="mstns:Name" />
+    </xs:unique>
+    <xs:keyref name="FK_Food_Menu" refer="Food_Constraint1" msdata:ConstraintOnly="true">
+      <xs:selector xpath=".//mstns:Menu" />
+      <xs:field xpath="mstns:Food" />
+    </xs:keyref>
+  </xs:element>
+</xs:schema>
