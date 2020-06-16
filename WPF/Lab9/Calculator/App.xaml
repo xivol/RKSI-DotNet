@@ -4,21 +4,23 @@
              xmlns:local="clr-namespace:WpfApp3"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <Style  x:Key="beautifulStyleText" TargetType="{x:Type Window}">
-            <Setter Property="Foreground" Value="Maroon"/>
-            <Setter Property="FontFamily" Value="Monotype Corsiva"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="FontSize" Value="24pt"/>
-        </Style>
-        <Style x:Key="beautifulStyleGrid" TargetType="{x:Type Grid}">
-            <Setter Property="Background" Value="DarkMagenta"/>
-        </Style>
         <Style x:Key="beautifulStyleControl" TargetType="{x:Type Control}">
             <Setter Property="Foreground" Value="Maroon"/>
             <Setter Property="Background" Value="Pink"/>
         </Style>
+        <Style  x:Key="beautifulStyleText" TargetType="{x:Type Window}" BasedOn="{StaticResource beautifulStyleControl}">
+            <Setter Property="FontFamily" Value="Papyrus"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="24pt"/>
+        </Style>
+        <SolidColorBrush x:Key="BackgroundBrush" Color="DarkMagenta"/>
+        <Style x:Key="beautifulStyleGrid" TargetType="{x:Type Grid}">
+            <Setter Property="Background" Value="{StaticResource BackgroundBrush}"/>
+        </Style>
+
         <Style TargetType="{x:Type Border}">
-            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="5"/>
             <Setter Property="CornerRadius" Value="10"/>
         </Style>
         <Style x:Key="beautifulStyleRect" TargetType="{x:Type Border}">
